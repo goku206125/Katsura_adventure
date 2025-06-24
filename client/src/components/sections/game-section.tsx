@@ -27,8 +27,12 @@ export default function GameSection() {
   ];
 
   const gameControls = [
-    { keys: "⬅️➡️", action: "Move" },
-    { keys: "🥊", action: "SPACE: Attack" },
+    { keys: "⬅️➡️", action: "A/D: Move" },
+    { keys: "🦘", action: "SPACE: Jump" },
+    { keys: "👊", action: "X: Punch" },
+    { keys: "🦵", action: "Z: Kick" },
+    { keys: "⚡", action: "C: Special Move" },
+    { keys: "🛡️", action: "S: Block" },
     { keys: "🎵", action: "R: Katsurap" },
     { keys: "🐧", action: "E: Elizabeth" }
   ];
@@ -101,20 +105,42 @@ export default function GameSection() {
                   </motion.div>
                 </div>
 
-                {/* Game Controls */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {/* Enhanced Game Controls */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                   {gameControls.map((control, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-gray-800 p-4 rounded-lg text-center"
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg text-center border border-purple-500 hover:border-yellow-400 transition-colors"
                     >
-                      <div className="text-2xl mb-2">{control.keys}</div>
-                      <div className="text-sm">{control.action}</div>
+                      <div className="text-xl mb-1">{control.keys}</div>
+                      <div className="text-xs font-bold">{control.action}</div>
                     </motion.div>
                   ))}
+                </div>
+
+                {/* Combat System Highlights */}
+                <div className="bg-gradient-to-r from-red-900 to-purple-900 p-4 rounded-lg mb-6">
+                  <h4 className="font-bold text-lg mb-3 text-center">🥊 TEKKEN-STYLE COMBAT SYSTEM</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">👊</div>
+                      <div className="font-bold">Combo System</div>
+                      <div>Chain attacks for higher scores</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🦘</div>
+                      <div className="font-bold">Advanced Movement</div>
+                      <div>Jump, dodge, and aerial attacks</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">⚡</div>
+                      <div className="font-bold">Special Moves</div>
+                      <div>"Zura Fury" devastating attacks</div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Game Features */}
