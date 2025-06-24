@@ -3,38 +3,34 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import StickFigureGame from "@/components/game/stick-figure-game";
+import KatsuraMCQGame from "@/components/game/katsura-mcq-game";
 
 export default function GameSection() {
   const [isGameActive, setIsGameActive] = useState(false);
 
   const gameFeatures = [
     {
-      icon: "⚔️",
-      title: "Multiple Enemies",
-      description: "Fight Shinsengumi & aliens"
+      icon: "🤔",
+      title: "Decision Making",
+      description: "Choose what Katsura would do"
     },
     {
-      icon: "🎭",
-      title: "Special Moves",
-      description: "Zura Kick & Katsurap Attack"
+      icon: "⏰",
+      title: "Timed Questions",
+      description: "Think fast like a revolutionary"
     },
     {
       icon: "🏆",
-      title: "Achievements",
+      title: "Patriot Level",
       description: "Unlock \"True Joui Patriot\""
     }
   ];
 
   const gameControls = [
-    { keys: "⬅️➡️", action: "A/D: Move" },
-    { keys: "🦘", action: "SPACE: Jump" },
-    { keys: "👊", action: "X: Punch" },
-    { keys: "🦵", action: "Z: Kick" },
-    { keys: "⚡", action: "C: Special Move" },
-    { keys: "🛡️", action: "S: Block" },
-    { keys: "🎵", action: "R: Katsurap" },
-    { keys: "🐧", action: "E: Elizabeth" }
+    { keys: "🤔", action: "Read scenarios carefully" },
+    { keys: "⏰", action: "Answer within 30 seconds" },
+    { keys: "🎯", action: "Think like Katsura" },
+    { keys: "🏆", action: "Build up patriot level" }
   ];
 
   return (
@@ -49,7 +45,7 @@ export default function GameSection() {
           >
             🎮 KATSURA'S JOUI ADVENTURE
           </motion.h2>
-          <div className="text-xl">The ultimate stress-relief stick figure game!</div>
+          <div className="text-xl">Test your revolutionary knowledge with Katsura!</div>
         </div>
 
         {/* Game Preview */}
@@ -68,13 +64,13 @@ export default function GameSection() {
                     <div className="text-center space-y-4">
                       <motion.div 
                         className="text-6xl"
-                        animate={{ x: [0, 20, 0] }}
-                        transition={{ duration: 1, repeat: Infinity }}
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
                       >
-                        🏃‍♂️
+                        🤔
                       </motion.div>
-                      <div className="text-2xl font-bold">KATSURA'S ADVENTURE</div>
-                      <div className="text-lg">Press SPACE to start the revolution!</div>
+                      <div className="text-2xl font-bold">WHAT WOULD KATSURA DO?</div>
+                      <div className="text-lg">Choose the most revolutionary response!</div>
                     </div>
                   </div>
                   
@@ -121,24 +117,24 @@ export default function GameSection() {
                   ))}
                 </div>
 
-                {/* Combat System Highlights */}
-                <div className="bg-gradient-to-r from-red-900 to-purple-900 p-4 rounded-lg mb-6">
-                  <h4 className="font-bold text-lg mb-3 text-center">🥊 TEKKEN-STYLE COMBAT SYSTEM</h4>
+                {/* Quiz System Highlights */}
+                <div className="bg-gradient-to-r from-purple-900 to-blue-900 p-4 rounded-lg mb-6">
+                  <h4 className="font-bold text-lg mb-3 text-center">🧠 REVOLUTIONARY QUIZ SYSTEM</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                     <div className="text-center">
-                      <div className="text-2xl mb-1">👊</div>
-                      <div className="font-bold">Combo System</div>
-                      <div>Chain attacks for higher scores</div>
+                      <div className="text-2xl mb-1">🎯</div>
+                      <div className="font-bold">Multiple Choice</div>
+                      <div>Pick the most Katsura response</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl mb-1">🦘</div>
-                      <div className="font-bold">Advanced Movement</div>
-                      <div>Jump, dodge, and aerial attacks</div>
+                      <div className="text-2xl mb-1">⏰</div>
+                      <div className="font-bold">Time Pressure</div>
+                      <div>Quick decision making</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl mb-1">⚡</div>
-                      <div className="font-bold">Special Moves</div>
-                      <div>"Zura Fury" devastating attacks</div>
+                      <div className="text-2xl mb-1">🏆</div>
+                      <div className="font-bold">Patriot Ranking</div>
+                      <div>Prove your revolutionary spirit</div>
                     </div>
                   </div>
                 </div>
@@ -208,10 +204,10 @@ export default function GameSection() {
         <DialogContent className="max-w-6xl max-h-[90vh]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center">
-              🎮 KATSURA'S JOUI ADVENTURE
+              🤔 WHAT WOULD KATSURA DO?
             </DialogTitle>
           </DialogHeader>
-          <StickFigureGame onClose={() => setIsGameActive(false)} />
+          <KatsuraMCQGame onClose={() => setIsGameActive(false)} />
         </DialogContent>
       </Dialog>
     </section>
