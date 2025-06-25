@@ -7,11 +7,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 const videos = [
   {
     id: 1,
-    title: "Zura Janai Compilation",
+    title: "Katsura and jackie chan",
     description: "Every single time Katsura corrects someone",
     duration: "5:32",
     views: "2.3M",
-    thumbnail: "▶️"
+    thumbnail: "▶️",
+    youtubeUrl: "https://www.youtube.com/watch?v=KcH-9SNR9sA"
   },
   {
     id: 2,
@@ -19,41 +20,50 @@ const videos = [
     description: "When Katsura discovered hip-hop",
     duration: "8:15",
     views: "1.8M",
-    thumbnail: "🎤"
+    thumbnail: "🎤",
+    youtubeUrl: "https://www.youtube.com/watch?v=DvS_2K5MVzU"
   },
   {
     id: 3,
-    title: "Elizabeth & Katsura Moments",
+    title: "Katsura become GUNDUM",
     description: "The dynamic duo's best scenes",
     duration: "12:04",
     views: "3.1M",
-    thumbnail: "🐧"
+    thumbnail: "🐧",
+    youtubeUrl: "https://www.youtube.com/watch?v=yEm1xzDmGXs"
   },
   {
     id: 4,
     title: "Disguise Master Fails",
-    description: "Katsura's most obvious disguises",
+    description: "katsura as santa clause",
     duration: "6:47",
     views: "2.7M",
-    thumbnail: "🎭"
+    thumbnail: "🎭",
+    youtubeUrl: "https://www.youtube.com/watch?v=0qqmXJHg0c0"
   },
   {
     id: 5,
     title: "Revolutionary Speeches",
-    description: "Katsura's most passionate moments",
+    description: "Katsura's most passionate moments at fourth ninja war",
     duration: "9:23",
     views: "1.5M",
-    thumbnail: "⚔️"
+    thumbnail: "⚔️",
+    youtubeUrl: "https://www.youtube.com/watch?v=LcJ6toaXGJM"
   },
   {
     id: 6,
-    title: "Comedy Gold Collection",
+    title: "Katsura bring revolutoin",
     description: "The funniest Katsura moments",
     duration: "15:18",
     views: "4.2M",
-    thumbnail: "😂"
+    thumbnail: "😂",
+    youtubeUrl: "https://www.youtube.com/watch?v=p29cdN0mYaA"
   }
 ];
+
+function getYoutubeId(url: string) {
+  return url.split('v=')[1]?.split('&')[0] || '';
+}
 
 export default function VideoSection() {
   const [isTheaterMode, setIsTheaterMode] = useState(false);
@@ -97,12 +107,11 @@ export default function VideoSection() {
                   onClick={() => openVideo(video)}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div 
-                      className="text-6xl group-hover:scale-125 transition-transform"
-                      whileHover={{ rotate: 5 }}
-                    >
-                      {video.thumbnail}
-                    </motion.div>
+                    <img
+                      src={`https://img.youtube.com/vi/${getYoutubeId(video.youtubeUrl)}/hqdefault.jpg`}
+                      alt={video.title}
+                      className="object-cover w-full h-full rounded-lg"
+                    />
                   </div>
                   <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
                     {video.duration}
@@ -144,17 +153,16 @@ export default function VideoSection() {
             </DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="text-8xl">{selectedVideo.thumbnail}</div>
-                <div className="text-white text-xl">Video Player Placeholder</div>
-                <div className="text-gray-400">
-                  In a real implementation, this would show the actual video content
-                </div>
-                <div className="text-sm text-gray-500">
-                  Duration: {selectedVideo.duration} | Views: {selectedVideo.views}
-                </div>
-              </div>
+            <div className="aspect-video bg-black rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${getYoutubeId(selectedVideo.youtubeUrl)}`}
+                title={selectedVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
             <div className="text-gray-600">
               {selectedVideo.description}
