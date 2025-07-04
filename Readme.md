@@ -97,10 +97,4 @@ The application is configured for deployment on Replit with the following setup:
 - Development/production mode switching
 - Replit-specific plugins for development experience
 
-## Changelog
 
-- June 24, 2025. Initial setup
-
-## User Preferences
-
-Preferred communication style: Simple, everyday language.
