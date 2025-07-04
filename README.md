@@ -1,17 +1,23 @@
-Katsura Kotaro Ultimate Fan Adventure
-Overview
+#Katsura Kotaro Ultimate Fan Adventure
+
+##Overview
 This is a full-stack web application dedicated to the character Katsura Kotaro from the anime/manga series Gintama. The application features an interactive fan experience with games, quotes, photo galleries, quizzes, and various activities themed around the character's comedic and revolutionary persona.
 
-System Architecture
+#System Architecture
 The application follows a modern full-stack architecture with a clear separation between client and server:
 
-Frontend: React-based single-page application (SPA) built with TypeScript and Vite
-Backend: Node.js Express server with TypeScript support
-Database: PostgreSQL with Drizzle ORM for type-safe database operations
-UI Framework: shadcn/ui components built on Radix UI primitives with Tailwind CSS
-Development Environment: Configured for Replit with hot reload and PostgreSQL support
+#Frontend: React-based single-page application (SPA) built with TypeScript and Vite
+
+#Backend: Node.js Express server with TypeScript support
+
+#Database: PostgreSQL with Drizzle ORM for type-safe database operations
+#UI Framework: shadcn/ui components built on Radix UI primitives with Tailwind CSS
+#Development Environment: Configured for Replit with hot reload and PostgreSQL support
+
 Key Components
-Frontend Architecture
+
+#Frontend Architecture
+
 React 18 with TypeScript for type safety
 Vite as the build tool and development server
 Wouter for client-side routing (lightweight React Router alternative)
@@ -19,7 +25,9 @@ TanStack Query for server state management and API calls
 Framer Motion for animations and interactive elements
 Tailwind CSS with custom Katsura-themed colors and animations
 shadcn/ui component library for consistent UI elements
-Backend Architecture
+
+#Backend Architecture
+
 Express.js server with TypeScript
 Drizzle ORM for database operations with PostgreSQL
 RESTful API design with proper error handling
@@ -32,7 +40,9 @@ quotes: Stores character quotes with categories and active status
 activities: Daily activities like disguises, missions, and messages
 quizResults: User quiz responses and patriot level calculations
 gameScores: High scores and achievements for the interactive game
-Key Features
+
+#Key Features
+
 Interactive Quiz System: Personality quiz to determine "patriot level"
 Daily Activities Tracker: Displays today's disguises, missions, and Elizabeth messages
 Quote Generator: Categorized quotes with sound effects
@@ -45,7 +55,9 @@ State Management: Combination of React hooks and TanStack Query for server state
 Real-time Updates: Activities and quotes are fetched dynamically from the API
 Sound Effects: Custom audio system using Web Audio API for interactive feedback
 Animation System: Framer Motion handles page transitions and interactive animations
-External Dependencies
+
+#External Dependencies
+
 Core Framework Dependencies
 React ecosystem (React, React DOM, TypeScript)
 Express.js with TypeScript support
@@ -65,7 +77,7 @@ Various React development tools
 Deployment Strategy
 The application is configured for deployment on Replit with the following setup:
 
-Development Mode
+#Development Mode
 Runs on port 5000 with hot reload
 Uses Vite development server with middleware mode
 PostgreSQL database provisioned through Replit
